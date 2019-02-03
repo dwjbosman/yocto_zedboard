@@ -1,16 +1,3 @@
----
-title: "Yocto linux on the Xilinx Zynq Zed board"
-cover: "/logos/linux.png"
-category: "FPGA"
-tags: 
-    - Zynq
-      Yocto
-      FPGA
-      Linux
-      Xilinx
-date: 2019-01-12 09:00
----
-
 # Introduction
 
 In my previous article I discussed setting up a Microblaze processor which can run user applications in a bare metal environment. The advantage of using a bare metal approach is that software runs without any (undeterministic) operating system overhead. An obvious disadvantage is that you need to implement basic Operating System tasks (eg. file system access, memory management) yourself. 
@@ -25,8 +12,6 @@ The described management functions can be implemented with ease on a Linux platf
 In this tutorial the programmable logic (PL) will be configured to contain a GPIO block connected via AXI to the ARM chips in the Zynq programmable system (PS). Linux will run on the PS and will be able to access the GPIO block in the PL.
 
 The Yocto files and VHDL code can be found in the [yocto\_zedboard](https://github.com/dwjbosman/yocto_zedboard.git) repository.
-
-![Yocto GPIO ZED board](resources/linux_board.gif "Yocto on ZED board")
 
 # Design
 
