@@ -19,7 +19,7 @@ END
 BEGIN DRIVER
  PARAMETER DRIVER_NAME = generic
  PARAMETER HW_INSTANCE = axi_bram_ctrl_0
- PARAMETER clock-names =  s_axi_aclk
+ PARAMETER clock-names = s_axi_aclk
  PARAMETER clocks = clkc 15
  PARAMETER compatible = xlnx,axi-bram-ctrl-4.0
  PARAMETER reg = 0x80000000 0x2000
@@ -41,7 +41,7 @@ END
 BEGIN DRIVER
  PARAMETER DRIVER_NAME = gpio
  PARAMETER HW_INSTANCE = axi_gpio_0
- PARAMETER clock-names =  s_axi_aclk
+ PARAMETER clock-names = s_axi_aclk
  PARAMETER clocks = clkc 15
  PARAMETER compatible = xlnx,axi-gpio-2.0 xlnx,xps-gpio-1.00.a
  PARAMETER reg = 0x41200000 0x10000
@@ -62,7 +62,7 @@ END
 BEGIN DRIVER
  PARAMETER DRIVER_NAME = intc
  PARAMETER HW_INSTANCE = microblaze_0_axi_intc
- PARAMETER clock-names =  s_axi_aclk processor_clk
+ PARAMETER clock-names = s_axi_aclk processor_clk
  PARAMETER clocks = clkc 15>, <&clkc 15
  PARAMETER compatible = xlnx,axi-intc-4.1 xlnx,xps-intc-1.00.a
  PARAMETER reg = 0x41800000 0x10000

@@ -1,17 +1,17 @@
 The target system is: Generic -  - microblaze
-The host system is: Linux - 4.15.0-43-generic - x86_64
+The host system is: Linux - 4.15.0-45-generic - x86_64
 Determining if files stdatomic.h exist passed with the following output:
 Change Dir: /home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/libsrc/libmetal_v1_4/build_libmetal/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a02bb/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a02bb.dir/build.make CMakeFiles/cmTC_a02bb.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_562a7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_562a7.dir/build.make CMakeFiles/cmTC_562a7.dir/build
 make[1]: Entering directory '/home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/libsrc/libmetal_v1_4/build_libmetal/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a02bb.dir/CheckIncludeFiles.c.obj
-/home/dinne/Xilinx/SDK/2018.2/gnu/microblaze/lin/bin/mb-gcc   -mlittle-endian -mxl-soft-mul -mcpu=v10.0  -mlittle-endian -ffunction-sections -fdata-sections -Wall -Wextra -I/home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/include -c   -o CMakeFiles/cmTC_a02bb.dir/CheckIncludeFiles.c.obj   -c /home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/libsrc/libmetal_v1_4/build_libmetal/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
-Linking C executable cmTC_a02bb
-/home/dinne/Xilinx/SDK/2018.2/tps/lnx64/cmake-3.3.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a02bb.dir/link.txt --verbose=1
-/home/dinne/Xilinx/SDK/2018.2/gnu/microblaze/lin/bin/mb-gcc   -mlittle-endian -mxl-soft-mul -mcpu=v10.0  -mlittle-endian -ffunction-sections -fdata-sections -Wall -Wextra -I/home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/include -c    CMakeFiles/cmTC_a02bb.dir/CheckIncludeFiles.c.obj  -o cmTC_a02bb  
-mb-gcc: warning: CMakeFiles/cmTC_a02bb.dir/CheckIncludeFiles.c.obj: linker input file unused because linking not done
+Building C object CMakeFiles/cmTC_562a7.dir/CheckIncludeFiles.c.obj
+/home/dinne/Xilinx/SDK/2018.2/gnu/microblaze/lin/bin/mb-gcc   -mlittle-endian -mxl-soft-mul -mcpu=v10.0  -mlittle-endian -ffunction-sections -fdata-sections -Wall -Wextra -I/home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/include -c   -o CMakeFiles/cmTC_562a7.dir/CheckIncludeFiles.c.obj   -c /home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/libsrc/libmetal_v1_4/build_libmetal/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTC_562a7
+/home/dinne/Xilinx/SDK/2018.2/tps/lnx64/cmake-3.3.2/bin/cmake -E cmake_link_script CMakeFiles/cmTC_562a7.dir/link.txt --verbose=1
+/home/dinne/Xilinx/SDK/2018.2/gnu/microblaze/lin/bin/mb-gcc   -mlittle-endian -mxl-soft-mul -mcpu=v10.0  -mlittle-endian -ffunction-sections -fdata-sections -Wall -Wextra -I/home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/include -c    CMakeFiles/cmTC_562a7.dir/CheckIncludeFiles.c.obj  -o cmTC_562a7  
+mb-gcc: warning: CMakeFiles/cmTC_562a7.dir/CheckIncludeFiles.c.obj: linker input file unused because linking not done
 make[1]: Leaving directory '/home/dinne/yocto_zedboard/vivado_linux_zynq/vivado_project/vivado_linux_zynq.sdk/mb_bsp/microblaze_0/libsrc/libmetal_v1_4/build_libmetal/CMakeFiles/CMakeTmp'
 
 

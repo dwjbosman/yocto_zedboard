@@ -13,8 +13,6 @@ int main() {
 	microblaze_disable_icache();                    /* Disable Instruction Cache */
 	microblaze_disable_dcache();                    /* Disable Instruction Cache */
 
-
-
 	for(;;) {
 		uint32_t addr = XPAR_PS7_DDR_0_HP0_AXI_BASENAME;
 		uint32_t offs = 0;
