@@ -25,5 +25,5 @@ bitbake core-image-minimal
 bitbake-layers add-layer "$OUTPUT_DIR/poky/meta-dts"
 #need to remove repodata dir, otherwise we'll get a mv error (the target dir is not empty...)
 rm -rf $OUTPUT_DIR/poky/build/tmp/work/zedboard_zynq7-poky-linux-gnueabi/core-image-minimal/1.0-r0/oe-rootfs-repo/repodata
-bitbake core-image-minimal -c populate_sd
+bitbake core-image-minimal -c populate_sdk
  
