@@ -17,6 +17,8 @@
 	aliases {
 		ethernet0 = &gem0;
 		serial0 = &uart1;
+		serial1 = &uart0;
+//		serial1 = &axi_uartlite_0;
 		spi0 = &qspi;
 		spi1 = &spi1;
 	};
@@ -33,7 +35,7 @@
   
       mb_shared_mem: buffer@0x10000000 {
          no-map;
-         reg = <0x10000000 0x10000000>;
+         reg = <0x10000000 0x0e000000>;
       };
    };
   
