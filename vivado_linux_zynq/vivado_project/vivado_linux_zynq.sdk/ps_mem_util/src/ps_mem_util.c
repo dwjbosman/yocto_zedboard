@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <errno.h>
+#include <linux/mman.h>
 
 static volatile uint8_t *base_address;
 
@@ -30,7 +31,7 @@ int read_file( char *argv[]) {
 	}
 
 	void* load_address = (void*)strtoul(addr, NULL, 16);
-	printf("Loading at address %p\n ",load_address);
+	printf("Loading at address 0x%p\n ",load_address);
 
 	fd = open("/dev/mem", O_RDWR | O_SYNC);
 
@@ -41,11 +42,11 @@ int read_file( char *argv[]) {
 	}
 
 	// determine size
-	size = strtol(len, NULL, 16);
-	printf("Reading %lx bytes\n ",size);
+	size = strtoul(len, NULL, 10);
+	printf("Reading %lu bytes\n ",size);
 
 
-	base_address = mmap(load_address, size, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS | MAP_FIXED, fd, 0);
+	base_address = mmap(load_address, size, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_UNINITIALIZED | MAP_FIXED, fd, 0);
 	if (base_address == MAP_FAILED) {
 		printf("mmap failed! %s\n", strerror(errno));
 		close(fd);
@@ -118,7 +119,7 @@ int write_file( char *argv[]) {
  	 * accessed
  	 */
 
-	base_address = mmap(load_address, size, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS | MAP_FIXED, fd, 0);
+	base_address = mmap(load_address, size, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_UNINITIALIZED | MAP_FIXED, fd, 0);
 	if (base_address == MAP_FAILED) {
 		printf("mmap failed! %s\n", strerror(errno));
 		close(fd);

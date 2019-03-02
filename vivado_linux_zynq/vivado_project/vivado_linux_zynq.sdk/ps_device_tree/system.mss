@@ -17,28 +17,6 @@ END
 
 
 BEGIN DRIVER
- PARAMETER DRIVER_NAME = generic
- PARAMETER HW_INSTANCE = axi_bram_ctrl_0
- PARAMETER clock-names = s_axi_aclk
- PARAMETER clocks = clkc 15
- PARAMETER compatible = xlnx,axi-bram-ctrl-4.0
- PARAMETER reg = 0x80000000 0x2000
- PARAMETER xlnx,bram-addr-width = 11
- PARAMETER xlnx,bram-inst-mode = EXTERNAL
- PARAMETER xlnx,ecc = 0
- PARAMETER xlnx,ecc-onoff-reset-value = 0
- PARAMETER xlnx,ecc-type = 0
- PARAMETER xlnx,fault-inject = 0
- PARAMETER xlnx,memory-depth = 2048
- PARAMETER xlnx,s-axi-ctrl-addr-width = 32
- PARAMETER xlnx,s-axi-ctrl-data-width = 32
- PARAMETER xlnx,s-axi-id-width = 1
- PARAMETER xlnx,s-axi-supports-narrow-burst = 0
- PARAMETER xlnx,select-xpm = 1
- PARAMETER xlnx,single-port-bram = 1
-END
-
-BEGIN DRIVER
  PARAMETER DRIVER_NAME = gpio
  PARAMETER HW_INSTANCE = axi_gpio_0
  PARAMETER clock-names = s_axi_aclk
@@ -49,7 +27,7 @@ BEGIN DRIVER
  PARAMETER xlnx,all-inputs-2 = 1
  PARAMETER xlnx,all-outputs = 1
  PARAMETER xlnx,all-outputs-2 = 0
- PARAMETER xlnx,dout-default = 0x00000000
+ PARAMETER xlnx,dout-default = 0x00002000
  PARAMETER xlnx,dout-default-2 = 0x00000000
  PARAMETER xlnx,gpio-width = 16
  PARAMETER xlnx,gpio2-width = 8
@@ -256,6 +234,28 @@ END
 BEGIN DRIVER
  PARAMETER DRIVER_NAME = xadcps
  PARAMETER HW_INSTANCE = ps7_xadc_0
+END
+
+BEGIN DRIVER
+ PARAMETER DRIVER_NAME = uartlite
+ PARAMETER HW_INSTANCE = axi_uartlite_0
+ PARAMETER clock-names = s_axi_aclk
+ PARAMETER clocks = clkc 15
+ PARAMETER compatible = xlnx,axi-uartlite-2.0 xlnx,xps-uartlite-1.00.a
+ PARAMETER current-speed = 115200
+ PARAMETER port-number = 1
+ PARAMETER reg = 0x42c00000 0x10000
+ PARAMETER xlnx,baudrate = 115200
+ PARAMETER xlnx,data-bits = 8
+ PARAMETER xlnx,odd-parity = 0
+ PARAMETER xlnx,s-axi-aclk-freq-hz-d = 100.0
+ PARAMETER xlnx,use-parity = 0
+END
+
+BEGIN DRIVER
+ PARAMETER DRIVER_NAME = uartps
+ PARAMETER HW_INSTANCE = ps7_uart_0
+ PARAMETER port-number = 2
 END
 
 
