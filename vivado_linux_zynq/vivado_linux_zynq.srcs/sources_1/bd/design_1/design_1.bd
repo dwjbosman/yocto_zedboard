@@ -512,9 +512,9 @@
         <spirit:componentRef spirit:library="ip" spirit:name="xlconcat" spirit:vendor="xilinx.com" spirit:version="2.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_xlconcat_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="NUM_PORTS">2</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="IN0_WIDTH">7</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="IN1_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="NUM_PORTS">3</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="IN0_WIDTH">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="IN1_WIDTH">6</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -583,9 +583,9 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">design_1_xlslice_1_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="DIN_TO">0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="DIN_FROM">6</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="DIN_FROM">5</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="DIN_WIDTH">16</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="DOUT_WIDTH">7</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="DOUT_WIDTH">6</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
@@ -809,11 +809,6 @@
         <spirit:internalPortReference spirit:componentRef="xlslice_0" spirit:portRef="Din"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>xlslice_0_Dout</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="xlslice_0" spirit:portRef="Dout"/>
-        <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="In1"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>microblaze_0_intr</spirit:name>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_xlconcat" spirit:portRef="dout"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0_axi_intc" spirit:portRef="intr"/>
@@ -835,11 +830,6 @@
         <spirit:internalPortReference spirit:componentRef="xlslice_2" spirit:portRef="Din"/>
         <spirit:internalPortReference spirit:componentRef="xlslice_3" spirit:portRef="Din"/>
         <spirit:internalPortReference spirit:componentRef="xlslice_4" spirit:portRef="Din"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>xlslice_1_Dout</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="xlslice_1" spirit:portRef="Dout"/>
-        <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="In0"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>xlslice_3_Dout</spirit:name>
@@ -866,6 +856,17 @@
         <spirit:name>util_vector_logic_0_Res</spirit:name>
         <spirit:internalPortReference spirit:componentRef="util_vector_logic_0" spirit:portRef="Res"/>
         <spirit:internalPortReference spirit:componentRef="microblaze_0" spirit:portRef="Reset"/>
+        <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="In0"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>xlslice_0_Dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="xlslice_0" spirit:portRef="Dout"/>
+        <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="In2"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>xlslice_1_Dout</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="xlslice_1" spirit:portRef="Dout"/>
+        <spirit:internalPortReference spirit:componentRef="xlconcat_0" spirit:portRef="In1"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>
@@ -1073,21 +1074,6 @@
         <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>M_AXI_GP1</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
-          <spirit:baseAddress spirit:maximum="0xBFFFFFFF" spirit:minimum="0x80000000">0x80000000</spirit:baseAddress>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:parameters>
-          <spirit:parameter>
-            <spirit:name>master_id</spirit:name>
-            <spirit:value>8</spirit:value>
-          </spirit:parameter>
-        </spirit:parameters>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>M_AXI_GP0</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
@@ -1099,6 +1085,21 @@
           <spirit:parameter>
             <spirit:name>master_id</spirit:name>
             <spirit:value>0</spirit:value>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>M_AXI_GP1</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="Data"/>
+          <spirit:baseAddress spirit:maximum="0xBFFFFFFF" spirit:minimum="0x80000000">0x80000000</spirit:baseAddress>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="aximm" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="aximm_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>master_id</spirit:name>
+            <spirit:value>8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
@@ -1175,14 +1176,6 @@
         <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
       <spirit:busInterface>
-        <spirit:name>ILMB</spirit:name>
-        <spirit:master>
-          <spirit:addressSpaceRef spirit:addressSpaceRef="Instruction"/>
-        </spirit:master>
-        <spirit:busType spirit:library="interface" spirit:name="lmb" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-      </spirit:busInterface>
-      <spirit:busInterface>
         <spirit:name>M_AXI_IC</spirit:name>
         <spirit:master>
           <spirit:addressSpaceRef spirit:addressSpaceRef="Instruction"/>
@@ -1195,6 +1188,14 @@
             <spirit:value>7</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
+      </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>ILMB</spirit:name>
+        <spirit:master>
+          <spirit:addressSpaceRef spirit:addressSpaceRef="Instruction"/>
+        </spirit:master>
+        <spirit:busType spirit:library="interface" spirit:name="lmb" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="interface" spirit:name="lmb_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
       </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:addressSpaces>
