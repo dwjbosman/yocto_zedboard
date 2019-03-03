@@ -16,6 +16,8 @@ int read_file( char *argv[]) {
 	int fd, fd_out;
 
 	off_t size;
+	uint32_t pages;
+	off_t size_rounded;
 	off_t file_index;
 
 	char* fname = 0;
@@ -31,7 +33,7 @@ int read_file( char *argv[]) {
 	}
 
 	void* load_address = (void*)strtoul(addr, NULL, 16);
-	printf("Loading at address 0x%p\n ",load_address);
+	printf("Loading at address %p\n ",load_address);
 
 	fd = open("/dev/mem", O_RDWR | O_SYNC);
 
@@ -43,10 +45,14 @@ int read_file( char *argv[]) {
 
 	// determine size
 	size = strtoul(len, NULL, 10);
+	pages = size / 4096;
+	size_rounded = (pages+1) * 4096;
+	
 	printf("Reading %lu bytes\n ",size);
 
+	//base_address = mmap(load_address, size_rounded, PROT_READ, MAP_SHARED | MAP_UNINITIALIZED | MAP_FIXED, fd, 0);
 
-	base_address = mmap(load_address, size, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_UNINITIALIZED | MAP_FIXED, fd, 0);
+	base_address = mmap(0, size_rounded, PROT_READ, MAP_SHARED | MAP_UNINITIALIZED, fd, load_address);
 	if (base_address == MAP_FAILED) {
 		printf("mmap failed! %s\n", strerror(errno));
 		close(fd);
@@ -83,6 +89,8 @@ int write_file( char *argv[]) {
 	int fd, fd_in;
 
 	off_t size;
+	uint32_t pages;
+	off_t size_rounded;
 	off_t file_index;
 
 	char* fname = 0;
@@ -111,7 +119,11 @@ int write_file( char *argv[]) {
 	size = lseek(fd_in, 0L, SEEK_END);
 	lseek(fd_in, 0L, SEEK_SET);
 
+	pages = size / 4096;
+	size_rounded = (pages+1) * 4096;
+	
 	printf("Copying %ld bytes\n", size);
+	printf("Mapping %ld bytes\n", size_rounded);
 
 	//size = 0x2000;
 
@@ -119,7 +131,8 @@ int write_file( char *argv[]) {
  	 * accessed
  	 */
 
-	base_address = mmap(load_address, size, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_UNINITIALIZED | MAP_FIXED, fd, 0);
+	//base_address = mmap(load_address, size_rounded, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_UNINITIALIZED | MAP_FIXED, fd, 0);
+	base_address = mmap(0, size_rounded, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_UNINITIALIZED, fd, load_address);
 	if (base_address == MAP_FAILED) {
 		printf("mmap failed! %s\n", strerror(errno));
 		close(fd);

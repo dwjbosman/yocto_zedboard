@@ -14,7 +14,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactExtension="elf" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="xilinx.gnu.mb.exe.debug.1942744780" name="Debug" parent="xilinx.gnu.mb.exe.debug">
+				<configuration artifactExtension="elf" artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="xilinx.gnu.mb.exe.debug.1942744780" name="Debug" parent="xilinx.gnu.mb.exe.debug" postbuildStep="mb-objcopy -I elf32-microblaze -O binary --strip-debug mb_hello.elf mb_hello.bin ; mb-objcopy -I elf32-microblaze -O binary mb_hello.elf --reverse-bytes=2 --strip-debug  mb_hello_swap.bin">
 					<folderInfo id="xilinx.gnu.mb.exe.debug.1942744780." name="/" resourcePath="">
 						<toolChain id="xilinx.gnu.mb.exe.debug.toolchain.1870829588" name="Xilinx MicroBlaze GNU Toolchain" superClass="xilinx.gnu.mb.exe.debug.toolchain">
 							<targetPlatform binaryParser="com.xilinx.sdk.managedbuilder.XELF.mb" id="xilinx.mb.target.gnu.base.debug.1262107282" isAbstract="false" name="Debug Platform" superClass="xilinx.mb.target.gnu.base.debug"/>
@@ -59,7 +59,6 @@
 								</option>
 								<option id="xilinx.gnu.linker.inferred.swplatform.flags.1208491569" name="Software Platform Inferred Flags" superClass="xilinx.gnu.linker.inferred.swplatform.flags" valueType="libs">
 									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lgcc,-lc,--end-group"/>
-									<listOptionValue builtIn="false" value="-Wl,--start-group,-lxil,-lmetal,-lgcc,-lc,--end-group"/>
 								</option>
 								<option id="xilinx.gnu.c.linker.option.lscript.687351979" name="Linker Script" superClass="xilinx.gnu.c.linker.option.lscript" value="../src/lscript.ld" valueType="string"/>
 								<inputType id="xilinx.gnu.linker.input.496243712" superClass="xilinx.gnu.linker.input">
@@ -88,6 +87,7 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+			<storageModule moduleId="ilg.gnuarmeclipse.managedbuild.packs"/>
 		</cconfiguration>
 		<cconfiguration id="xilinx.gnu.mb.exe.release.409850859">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="xilinx.gnu.mb.exe.release.409850859" moduleId="org.eclipse.cdt.core.settings" name="Release">

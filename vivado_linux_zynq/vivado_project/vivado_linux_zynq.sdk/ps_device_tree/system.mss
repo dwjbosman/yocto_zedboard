@@ -258,4 +258,26 @@ BEGIN DRIVER
  PARAMETER port-number = 2
 END
 
+BEGIN DRIVER
+ PARAMETER DRIVER_NAME = generic
+ PARAMETER HW_INSTANCE = axi_bram_ctrl_0
+ PARAMETER clock-names =  s_axi_aclk
+ PARAMETER clocks = clkc 15
+ PARAMETER compatible = xlnx,axi-bram-ctrl-4.0
+ PARAMETER reg = 0x40000000 0x8000
+ PARAMETER xlnx,bram-addr-width = 13
+ PARAMETER xlnx,bram-inst-mode = EXTERNAL
+ PARAMETER xlnx,ecc = 0
+ PARAMETER xlnx,ecc-onoff-reset-value = 0
+ PARAMETER xlnx,ecc-type = 0
+ PARAMETER xlnx,fault-inject = 0
+ PARAMETER xlnx,memory-depth = 8192
+ PARAMETER xlnx,s-axi-ctrl-addr-width = 32
+ PARAMETER xlnx,s-axi-ctrl-data-width = 32
+ PARAMETER xlnx,s-axi-id-width = 1
+ PARAMETER xlnx,s-axi-supports-narrow-burst = 0
+ PARAMETER xlnx,select-xpm = 1
+ PARAMETER xlnx,single-port-bram = 1
+END
+
 
